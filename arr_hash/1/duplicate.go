@@ -19,17 +19,12 @@ func main() {
 }
 
 func HasDuplicate(nums []int) bool {
-	if len(nums) <= 0 {
-		return false
-	}
-	m := make(map[int]int)
+	m := make(map[int]struct{})
 	for _, v := range nums {
-		m[v]++
-	}
-	for _, v := range m {
-		if v > 1 {
+		if _, exists := m[v]; exists {
 			return true
 		}
+		m[v] = struct{}{}
 	}
 	return false
 }

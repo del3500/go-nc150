@@ -22,7 +22,7 @@ func TestTwoSum(t *testing.T) {
 			name:     "test2",
 			nums:     []int{5, 5, 2},
 			target:   50,
-			expected: []int{},
+			expected: nil,
 		},
 		{
 			name:     "test3",

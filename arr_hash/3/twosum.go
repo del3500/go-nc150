@@ -9,15 +9,13 @@ func main() {
 }
 
 func twoSum(nums []int, t int) []int {
-	ans := make([]int, 0, 2)
-	for i := 0; i < len(nums); i++ {
-		for j := i + 1; j < len(nums); j++ {
-			if nums[i]+nums[j] == t {
-				ans = append(ans, i)
-				ans = append(ans, j)
-				return ans
-			}
+	m := make(map[int]int)
+	for i, num := range nums {
+		complement := t - num
+		if j, ok := m[complement]; ok {
+			return []int{j, i}
 		}
+		m[num] = i
 	}
-	return ans
+	return nil
 }
